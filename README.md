@@ -1,5 +1,6 @@
 <div align="center">
-
+![Banner](banner.svg)
+LLM-Powered security check for your Windows PC
 <img src="assets/banner.svg" alt="AUDIT4ALL - Am I being hacked or spied on?" width="100%">
 
 <br><br>
@@ -11,6 +12,7 @@
 <img src="https://img.shields.io/badge/runs-100%25%20offline-2e8b57?style=for-the-badge" alt="Offline">
 
 <br><br>
+
 
 <h3>A calm, plain-English security check for your Windows PC.</h3>
 
@@ -30,7 +32,8 @@
   <img src="assets/preview.svg" alt="Example AUDIT4ALL result" width="85%">
 </p>
 <p align="center"><sub>Illustration of the result format. Every finding answers three questions.</sub></p>
-
+## 📸 Preview
+![Preview](preview.svg)
 <br>
 
 ## Why this exists
