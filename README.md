@@ -1,107 +1,169 @@
 <div align="center">
 
-# 🛡️ AUDIT4ALL
+<img src="assets/banner.svg" alt="AUDIT4ALL - Am I being hacked or spied on?" width="100%">
 
-### *Am I being hacked or spied on?*
-A calm, plain-English security check for your Windows PC.
+<br><br>
 
-<br>
+<a href="https://github.com/Raven9001/audit4all/releases/latest"><img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"></a>
+<a href="#"><img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
+<a href="https://github.com/Raven9001/audit4all/releases/latest"><img src="https://img.shields.io/github/v/release/Raven9001/audit4all?style=for-the-badge&color=ff9d1c" alt="Release"></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/Raven9001/audit4all?style=for-the-badge&color=44525b" alt="License"></a>
+<img src="https://img.shields.io/badge/runs-100%25%20offline-2e8b57?style=for-the-badge" alt="Offline">
 
-[![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#)
-[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
-[![Release](https://img.shields.io/github/v/release/Raven9001/audit4all?style=for-the-badge&color=ff9d1c)](https://github.com/Raven9001/audit4all/releases/latest)
-[![License](https://img.shields.io/github/license/Raven9001/audit4all?style=for-the-badge&color=44525b)](LICENSE)
+<br><br>
 
-<br>
+<h3>A calm, plain-English security check for your Windows PC.</h3>
 
-**[⬇️ Download for Windows](https://github.com/Raven9001/audit4all/releases/latest)**  ·  **[Run from source](#-run-from-source)**  ·  **[Report a bug](https://github.com/Raven9001/audit4all/issues)**
+<a href="https://github.com/Raven9001/audit4all/releases/latest"><b>&#11015;&#65039; Download</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#-quick-start"><b>Quick start</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#-run-from-source"><b>Run from source</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://github.com/Raven9001/audit4all/issues"><b>Report a bug</b></a>
 
 </div>
 
----
+<br>
+
+<p align="center">
+  <img src="assets/preview.svg" alt="Example AUDIT4ALL result" width="85%">
+</p>
+<p align="center"><sub>Illustration of the result format. Every finding answers three questions.</sub></p>
+
+<br>
 
 ## Why this exists
 
-Most security tools talk to you like you already work in IT. Port 3389 is open, a service is bound to 0.0.0.0, something is beaconing to an unknown host. Great, but is that bad?
+AUDIT4ALL answers one question: **is anything on this computer exposed or behaving strangely, and what should I do about it?**
 
-AUDIT4ALL answers one question: **is anything on this computer exposed or behaving strangely, and what should I do about it?** Every result comes with three lines: *what's happening*, *why it matters*, and *what to do*. Technical details are there if you want them, hidden if you don't.
+Every result comes with three lines: *what's happening*, *why it matters*, and *what to do*. Technical details are there if you want them, hidden if you don't.
 
----
+<br>
 
 ## What it checks
 
-| Check | What it looks at | How |
-|---|---|---|
-| **Open ports** | Which programs are listening, and whether they're reachable from your network or only from your own PC | `psutil` plus a built-in knowledge base of 40+ well-known ports (RDP, SMB, databases, dev servers, VNC, and more) |
-| **Startup programs** | What launches by itself when Windows boots: unsigned entries, programs running from Temp/Downloads, hidden PowerShell or `mshta` launch strings | Microsoft's official [Autoruns](https://learn.microsoft.com/sysinternals/downloads/autoruns), downloaded and signature-verified |
-| **Live traffic** | A short capture of what your PC sends and receives: repeating check-ins, port scans, unencrypted logins, odd DNS lookups | `scapy` + Npcap |
+<table>
+  <tr>
+    <td align="center" width="33%" valign="top">
+      <h3>&#128682;<br>Open ports</h3>
+      <p>Which programs are listening, and whether they can be reached from your network or only from your own PC.</p>
+      <sub>psutil + a knowledge base of 40+ common ports (RDP, SMB, databases, dev servers, VNC)</sub>
+    </td>
+    <td align="center" width="33%" valign="top">
+      <h3>&#9881;&#65039;<br>Startup programs</h3>
+      <p>What launches by itself when Windows boots: unsigned entries, programs running from Temp or Downloads, hidden launch tricks.</p>
+      <sub>Microsoft Autoruns, downloaded and signature-verified</sub>
+    </td>
+    <td align="center" width="33%" valign="top">
+      <h3>&#128225;<br>Live traffic</h3>
+      <p>A short capture of what your PC sends and receives: repeating check-ins, port scans, unencrypted logins, odd lookups.</p>
+      <sub>scapy + Npcap</sub>
+    </td>
+  </tr>
+</table>
 
-Findings are ranked **High / Medium / Low**. Anything normal is tucked into a "checked and normal" list so the screen stays quiet when there's nothing to worry about.
+<p align="center">
+  Findings are ranked <b>High</b> / <b>Medium</b> / <b>Low</b>.<br>
+  Anything normal is tucked into a "checked and normal" list so the screen stays quiet when there's nothing to worry about.
+</p>
 
----
+<br>
 
 ## Two ways to use it
 
-**Desktop app** (Tkinter): double-click and go.
-**Browser app** (Streamlit): same checks, with a dark dashboard and downloadable reports.
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <h3>&#128421;&#65039; Desktop app</h3>
+      <p>Built with Tkinter.<br>Double-click and go.</p>
+    </td>
+    <td align="center" width="50%">
+      <h3>&#127760; Browser app</h3>
+      <p>Built with Streamlit.<br>Dark dashboard with downloadable reports.</p>
+    </td>
+  </tr>
+</table>
 
-Both are launched from the same `run_audit4all.bat`, which asks which one you want.
+<p align="center">Both start from the same <code>run_audit4all.bat</code>, which asks which one you want.<br>Reports save as a readable <code>.txt</code> or a full <code>.json</code>.</p>
 
-Reports can be saved as a readable `.txt` or a full `.json`.
+<br>
 
----
+## &#128640; Quick start
 
-## 🚀 Quick start
+<table>
+  <tr>
+    <td width="60" align="center"><h2>1</h2></td>
+    <td>Download the latest zip from <b><a href="https://github.com/Raven9001/audit4all/releases/latest">Releases</a></b> and extract it.</td>
+  </tr>
+  <tr>
+    <td align="center"><h2>2</h2></td>
+    <td>Double-click <b><code>run_audit4all.bat</code></b>.</td>
+  </tr>
+  <tr>
+    <td align="center"><h2>3</h2></td>
+    <td>Say <b>Yes</b> to the administrator prompt. Without it, Windows hides program paths and live capture won't work.</td>
+  </tr>
+  <tr>
+    <td align="center"><h2>4</h2></td>
+    <td>Pick Desktop or Browser, then press <b>Run audit</b>.</td>
+  </tr>
+</table>
 
-1. Download the latest zip from **[Releases](https://github.com/Raven9001/audit4all/releases/latest)** and extract it.
-2. Double-click **`run_audit4all.bat`**.
-3. Say **Yes** to the administrator prompt. Without it, Windows hides program paths and live capture won't work.
-4. Pick Desktop or Browser, then hit **Run audit**.
+> [!TIP]
+> **SmartScreen warning?** Click *More info*, then *Run anyway*. The app is open source, so you can read every line before running it.
 
-> **SmartScreen warning?** Click *More info → Run anyway*. The app is open source, so you can read every line before running it.
+> [!NOTE]
+> You only need [Python 3](https://www.python.org/downloads/) with **"Add python.exe to PATH"** ticked. The launcher installs everything else on first run.
+> For live traffic, also install [Npcap](https://npcap.com) and tick **"WinPcap API-compatible mode"**.
 
-The launcher installs the Python packages it needs on first run. You only need [Python 3](https://www.python.org/downloads/) installed, with **"Add python.exe to PATH"** ticked.
+<br>
 
-**For live traffic**, install [Npcap](https://npcap.com) and tick *"WinPcap API-compatible mode"* during setup.
+## &#129302; Optional AI summaries
 
----
+AUDIT4ALL works fully offline. Without a key, a built-in rule engine writes the summaries. If the AI call ever fails, the app silently falls back to it, so you always get an answer.
 
-## 🤖 Optional AI summaries
+<details>
+<summary><b>How to turn on AI summaries (free Groq key)</b></summary>
+<br>
 
-AUDIT4ALL works fully offline. Without a key, a built-in rule engine writes the summaries.
+1. Get a free key at [console.groq.com](https://console.groq.com/).
+2. **Browser app:** open the **AI settings** panel near the top and paste the key.
+3. **Or** set it before launching:
 
-If you want a more natural-sounding summary, add a free [Groq](https://console.groq.com/) API key:
+```bat
+set GROQ_API_KEY=your_key_here
+```
 
-- **Browser app:** open the **AI settings** panel near the top and paste your key.
-- **Or** set it yourself before launching:
-  ```bat
-  set GROQ_API_KEY=your_key_here
-  ```
+</details>
 
-If the AI call fails for any reason, the app silently falls back to the rule engine. You always get an answer.
+<br>
 
----
+## &#128274; Privacy
 
-## 🔒 Privacy
+<table>
+  <tr>
+    <td align="center" width="25%"><h3>&#127968;</h3><b>Local</b><br><sub>Port, startup and packet checks run on your PC</sub></td>
+    <td align="center" width="25%"><h3>&#128221;</h3><b>Text only</b><br><sub>With AI on, only a short description of findings is sent. Never packets or files</sub></td>
+    <td align="center" width="25%"><h3>&#128683;</h3><b>No key, no upload</b><br><sub>Nothing leaves your computer</sub></td>
+    <td align="center" width="25%"><h3>&#9989;</h3><b>Verified</b><br><sub>Autoruns is deleted if the Microsoft signature fails</sub></td>
+  </tr>
+</table>
 
-- Port checks, startup checks and packet analysis all run **locally**.
-- If AI summaries are on, only a short text description of the findings is sent. **Never** raw packets, file contents or your files.
-- With no key set, **nothing leaves your computer.**
-- The only thing the app downloads on its own is Autoruns from `download.sysinternals.com`, and it deletes the files again if the Microsoft signature doesn't verify.
+<br>
 
----
-
-## 🛠️ Run from source
+## &#128736;&#65039; Run from source
 
 ```bash
 git clone https://github.com/Raven9001/audit4all.git
 cd audit4all
 pip install -r requirements.txt
-python audit4all.py          # desktop app
+python audit4all.py              # desktop app
 python -m streamlit run app.py   # browser app
 ```
 
-### Project layout
+<details>
+<summary><b>Project layout</b></summary>
 
 ```
 audit4all.py        Desktop app (Tkinter)
@@ -111,24 +173,26 @@ knowledge_base.py   Plain-English knowledge about common ports
 startup_audit.py    Autoruns download, verification and scoring
 pcap_analyzer.py    Live traffic capture and detection rules
 run_audit4all.bat   One-click launcher
+assets/             README images
 ```
 
----
+</details>
 
-## ⚠️ Honest limits
+<br>
 
-AUDIT4ALL is a **first look**, not antivirus. A clean result means nothing obviously wrong was found, not that your PC is guaranteed safe. If something is flagged High and you can't explain it, run a proper malware scan and, if it's a work machine, tell your IT team.
+## &#9888;&#65039; Honest limits
 
----
+> [!WARNING]
+> AUDIT4ALL is a **first look**, not antivirus. A clean result means nothing obviously wrong was found, not that your PC is guaranteed safe. If something is flagged High and you can't explain it, run a proper malware scan and, on a work machine, tell your IT team.
+
+<br>
 
 ## Contributing
 
 Bugs, ideas and new port entries for `knowledge_base.py` are welcome. Open an issue or a pull request.
 
-## License
-
-Add a `LICENSE` file (MIT is a good default) and this section will match the badge above.
+<br>
 
 <div align="center">
-<sub>Built by <a href="https://github.com/Raven9001">Raven9001</a></sub>
+  <sub>Built by <a href="https://github.com/Raven9001">Raven9001</a></sub>
 </div>
