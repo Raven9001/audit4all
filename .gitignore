@@ -1,0 +1,12 @@
+.env
+*.key
+*.log
+audit4all_report_*
+audit4all_traffic_*
+tools/
+autorunsc.exe
+autorunsc64.exe
+__pycache__/
+*.pyc
+venv/
+.venv/
